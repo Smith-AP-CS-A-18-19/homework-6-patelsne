@@ -1,22 +1,43 @@
 public class Homework6 {
 
+	private String word;
+	private int numa;
+	private int numb;
+	private int numc;
+
 	/* Finish the constructor and create any necessary instance
 	 * variables
 	 */
 	public Homework6(String s, int a, int b, int c) {
-
-	}
+		word = s;
+		numa = a;
+		numb = b;
+		numc = c;
+		}
 
 	/* Return true if the stored String comes before the provided
 	 * String lexicographically, return false if it does not
 	 */
-	public boolen isBefore(String other) {
-
+	public boolean isBefore(String other) {
+		if (word.compareToIgnoreCase(other) > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/* Return the maximum of the stored integers
 	 */
 	public int max() {
+		if((numa > numb) && (numa > numc)) {
+			return numa;
+		} else if ((numb > numa) && (numb > numc)){
+			return numb;
+		} else if ((numc > numa) && (numc > numb)){
+			return numc;
+		} else {
+			return -1;
+		}
 
 	}
 
@@ -26,6 +47,33 @@ public class Homework6 {
 	 * to receive full credit
 	 */
 	public int mid() {
+		if (max() == numa){
+			if (numb >= numc){
+				return numb;
+			} else {
+				return numc;
+			}
+		} else if (max() == numb){
+				if (numa >= numc){
+					return numa;
+				} else {
+					return numc;
+				}
+		} else if (max() == numc){
+				if (numb >= numa){
+					return numb;
+				} else {
+					return numa;
+				}
+		} else if ((max() == numa) && (max() == numb)){
+			return numc;
+		} else if ((max() == numc) && (max() == numb)){
+			return numa;
+		} else if ((max() == numa) && (max() == numc)){
+			return numb;
+		} else {
+			return numa;
+		}
 
 	}
 
@@ -35,7 +83,11 @@ public class Homework6 {
 	 * >= or =<; instead use < or > and invert them with !
 	 */
 	public boolean isAscending() {
-
+ 		if (!((numc>numb) && (numb>numa))){
+			return true;
+		} else{
+			return false;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -87,5 +139,5 @@ public class Homework6 {
 
 		System.exit(exitCode);
 	}
-	
+
 }
