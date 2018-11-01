@@ -19,6 +19,10 @@ public class Homework6 {
 	 * String lexicographically, return false if it does not
 	 */
 	public boolean isBefore(String other) {
+		/* compareTo will return a negative
+		 * number if the first string comes
+		 * before
+		 */
 		if (word.compareToIgnoreCase(other) > 0) {
 			return true;
 		} else {
